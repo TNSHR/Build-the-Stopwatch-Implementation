@@ -10,11 +10,11 @@ function StopWatch(){
                 setTime(prevTime=>prevTime+1);
             },1000);
         }
-        else if(!isRunning && time!==0){
+        else {
             clearInterval(interval);
         }
         return()=>clearInterval(interval);
-    },[isRunning,time]);
+    },[isRunning]);
 
     const startStop=()=>{
         setTime(0);
@@ -28,7 +28,7 @@ function StopWatch(){
 
     const formatTime=(time)=>{
         
-        const minutes=Math.floor((time%3600)/60);
+        const minutes=Math.floor(time/60);
         const seconds = time%60;
         return `${minutes}:${seconds <10 ? '0':''}${seconds}`;
     }
