@@ -10,11 +10,11 @@ function StopWatch(){
                 setTime(prevTime=>prevTime+1);
             },1000);
         }
-        else{
+        else if(!isRunning && time!==0){
             clearInterval(interval);
         }
         return()=>clearInterval(interval);
-    },[isRunning]);
+    },[isRunning,time]);
 
     const startStop=()=>{
         setTime(0);
